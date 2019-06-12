@@ -1,2 +1,2 @@
-# KotlinLearing
-KotlinLearing
+# KotlinLearning
+KotlinLearning
