@@ -99,11 +99,55 @@ fun foo() {
 }
 
 /**延迟初始化属性与变量*/
+public class MyTest() {
+    lateinit var lateInit: LateInit
+    lateinit var str: String
+    fun setUp() {
+        lateInit = LateInit()
+        //str=""
+    }
 
+    fun test() {
+        lateInit.m()
+        str.toString()
+
+    }
+
+
+    class LateInit {
+        fun m() {
+
+        }
+    }
+}
+
+/**该修饰符只能用于在类体中的属性（不是在主构造函数中声明的 var 属性，并且仅当该属性
+没有自定义 getter 或 setter 时）*//*而自 Kotlin 1.2 起，也用于顶层属性与局部变量。该属性或
+变量必须为非空类型，并且不能是原生类型。
+在初始化前访问一个 lateinit 属性会抛出一个特定异常，该异常明确标识该属性被访问及
+它没有初始化的事实。
+检测一个 lateinit var 是否已初始化（自 1.2 起）
+要检测一个 lateinit var 是否已经初始化过，请在该属性的引用上使用 .isInitialized ：
+if (foo::bar.isInitialized) {
+println(foo.bar)
+}
+此检测仅对可词法级访问的属性可用，即声明位于同一个类型内、位于其中一个外围类型中
+或者位于相同文件的顶层的属性。*/
+
+
+val x = 1
 
 fun main() {
     //m1(1, 1)
     val setTest = SetTest()
     setTest.num = 10
     println(setTest.num)
+    /* println(::lateInit.isLateinit)
+     println(::str.isLateinit)*/
+    /**
+     * 属性引用
+     */
+    println(::x.get())
+    println(::x.name)
 }
+
