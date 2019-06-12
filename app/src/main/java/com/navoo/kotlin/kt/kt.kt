@@ -138,11 +138,14 @@ println(foo.bar)
 /**可见性修饰符:类、对象、接口、构造函数、方法、属性和它们的 setter 都可以有 可见性修饰符。 （getter
 总是与属性有着相同的可见性。） 在 Kotlin 中有这四个可见性修饰符： private 、
 protected 、 internal 和 public 。 如果没有显式指定修饰符的话，默认可见性是
-public 。*/
+public */
 
 
 val x = 1
 var y: Int = 0
+
+/**扩展*/
+
 
 fun main() {
     //m1(1, 1)
